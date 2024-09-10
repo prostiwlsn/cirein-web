@@ -2,11 +2,13 @@
 import { ref } from 'vue';
 import Select from './Select.vue';
 
-const isActive = defineModel()
+const props = defineProps({
+    isActive: Boolean
+})
 </script>
 
 <template>
-    <div :class="isActive ? 'active' : ''" @click="isActive = true" style="position: relative; font-size: 19px; width: min-content; cursor: pointer;">
+    <div :class="isActive ? 'active' : ''" style="position: relative; font-size: 19px; width: min-content; cursor: pointer;">
         <slot></slot>
         <Select class="tr-corner" v-if="isActive"/>
         <Select class="tl-corner" v-if="isActive"/>

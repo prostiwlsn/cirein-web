@@ -1,19 +1,32 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Link from './Link.vue';
 
-defineProps({
-    pages: Array //[{name: String, isActive: Boolean}]
+const props = defineProps({
+    pages: Array
+})
+
+const isActive = ref([])
+const activePageIndex = ref(0)
+
+function isActiveOnClick(index){
+    isActive.value[activePageIndex.value] = false
+
+    activePageIndex.value = index
+    isActive.value[index] = true
 }
 
-)
+onMounted(() => {
+    props.pages.forEach(element => {
+        isActive.value.push(false)
+    });
 
-const isActive = ref(false)
+    isActive.value[activePageIndex.value] = true;
+})
 </script>
 
 <template>
-    <Link v-model="isActive">HOME</Link>
-    <button @click="isActive=false">xddd</button>
+    <Link v-for="(page, index) in pages" :isActive="isActive[index]" @click="() => isActiveOnClick(index)">{{page}}</Link>
 </template>
 
 <style scoped>
