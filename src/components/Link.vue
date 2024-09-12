@@ -11,14 +11,15 @@ const props = defineProps({
 <template>
     <div :class="isActive ? 'active' : ''" class="link">
         <slot></slot>
-        <Select class="tr-corner" v-if="isActive"/>
-        <Select class="tl-corner" v-if="isActive"/>
-        <Select class="br-corner" v-if="isActive"/>
-        <Select class="bl-corner" v-if="isActive"/>
+
+        <Select class="tr-corner" :isActive="isActive"/>
+        <Select class="tl-corner" :isActive="isActive"/>
+        <Select class="br-corner" :isActive="isActive"/>
+        <Select class="bl-corner" :isActive="isActive"/>
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .link {
     position: relative; 
     font-size: 19px; 
@@ -27,10 +28,17 @@ const props = defineProps({
 
     margin-left: 2em;
     margin-right: 2em;
+
+    transition: all;
+    transition-duration: 300ms;
+
+    &:hover {
+        color: #adf576;
+    }
 }
 
 .active {
-    color: #72C134;
+    color: #72C134 !important; 
 }
 
 .tr-corner{
