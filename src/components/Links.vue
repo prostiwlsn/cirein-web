@@ -26,8 +26,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <Link v-for="(page, index) in pages" :isActive="isActive[index]" @click="() => isActiveOnClick(index)">{{page}}</Link>
+    <div class="links">
+        <Link v-for="(page, index) in pages" :isActive="isActive[index]" @click="() => isActiveOnClick(index)">{{page}}</Link>
+    </div>
 </template>
 
 <style scoped>
+.links {
+    display: flex;
+    flex-direction: row;
+}
 </style>

@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div :class="isActive ? 'active' : ''" style="position: relative; font-size: 19px; width: min-content; cursor: pointer;">
+    <div :class="isActive ? 'active' : ''" class="link">
         <slot></slot>
         <Select class="tr-corner" v-if="isActive"/>
         <Select class="tl-corner" v-if="isActive"/>
@@ -18,6 +18,16 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.link {
+    position: relative; 
+    font-size: 19px; 
+    width: min-content; 
+    cursor: pointer;
+
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
 .active {
     color: #72C134;
 }
