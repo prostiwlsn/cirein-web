@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import MainBody from './components/MainBody.vue';
 
 //https://www.figma.com/design/FSJKBCHKplqtkyuMUmZDhi/Untitled?m=auto&t=OKZg5P8dyu6mDnhk-6
 
@@ -22,8 +23,8 @@ onMounted(() => {
     <Navbar :pages="pages"/>
   </div>
 
-  <div ref="mainBody">
-    xdd
+  <div class="main-body" ref="mainBody">
+    <MainBody/>
   </div>
 
   <div class="bottom-bar" ref="footer">
@@ -44,7 +45,6 @@ onMounted(() => {
 .main-body {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
