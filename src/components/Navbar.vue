@@ -28,15 +28,14 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+
 .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
+    width: 95%;
 
-    @media screen and (max-width: 1200px) {
-        width: 100%;
-    }
+    margin-top: 2em;
 }
 </style>
