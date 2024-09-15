@@ -1,12 +1,23 @@
 <script setup>
 import Select from './Select.vue';
+import { selectedPage } from '../composables/selectedPage';
+import { watch } from 'vue';
+
+import ABOUT from './pages/ABOUT.vue';
+import CONTACT from './pages/CONTACT.vue';
+import HOME from './pages/HOME.vue';
+
+const components = {
+    ABOUT,
+    CONTACT,
+    HOME
+};
 </script>
 
 <template>
     <div class="outer">
         <div class="text">
-            <h1>Xdxdxd</h1>
-            <div>sex</div>
+            <component :is="components[selectedPage.name]"></component>
         </div>
         <Select class="tr-corner" :isActive="true"/>
         <Select class="tl-corner" :isActive="true"/>
@@ -31,15 +42,7 @@ import Select from './Select.vue';
 
         text-align: left;
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin: 0;
-            font-weight: 400;
-        }
+        text-shadow: 1px 1px 2px black;
     }
 
     .tr-corner{
